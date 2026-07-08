@@ -16,8 +16,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      flash[:success] = "Product created!"
       redirect_to @product
     else
+      flash[:error] = "Please fill in all required forms."
       render :new, status: :unprocessable_entity
     end
   end

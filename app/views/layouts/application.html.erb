@@ -27,6 +27,8 @@
     <nav>
       <%= link_to "Home", root_path %>
       <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+      <%= link_to "Sign In", new_session_path, method: :delete if !authenticated? %>
+      <%= link_to "Register", new_registration_path, method: :delete if !authenticated? %>
     </nav>
     <main>
       <%= yield %>
