@@ -30,6 +30,9 @@
       <%= link_to "Sign In", new_session_path, method: :delete if !authenticated? %>
       <%= link_to "Register", new_registration_path, method: :delete if !authenticated? %>
     </nav>
+      <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, class: name %>
+      <% end -%>
     <main>
       <%= yield %>
     </main>
